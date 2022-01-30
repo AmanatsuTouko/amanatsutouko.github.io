@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>UltimateReversi</title>
+    <script src="processing.min.js"></script>
+    <style type="text/css">
+        .color {
+            background-color: white;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="color">
+        <canvas data-processing-sources="ReversiVol8.pde" id="canvas"></canvas>
+    </div>
+    <!--canvasの位置調整-->
+    <script type="text/javascript">
+        var canvas;
+        var ctx;
+        
+        function init() {
+            canvas = document.getElementById("canvas");
+            canvas.style.position = "relative";
+
+            /*ウィンドウの中心に配置する*/
+            var w = window.innerWidth/2 - 450;
+            var h = window.innerHeight/2 - 300;
+
+            canvas.style.left = String(w) + "px";
+            canvas.style.top = String(h) + "px";
+            /*
+            canvas.style.left = "300px";
+            canvas.style.top = "100px";
+            */
+
+            ctx = canvas.getContext("2d");
+        }
+        
+        //初期ロード時
+        window.onload = function() {
+            init();
+        };
+        //リサイズ時
+        window.addEventListener("resize", ()=>{
+            init();
+        }, false);
+    </script>
+</body>
